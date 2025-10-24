@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FunTure | 走向有趣的未來!</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <header id="navbar">
+    <h1 class="logo">
+      <a href="index.html">
+        <img src="/images/FunTure-logo.svg" alt="FunTure | 走向有趣的未來">
+        <span>FunTure | 走向有趣的未來</span>
+      </a>
+    </h1>
+
+    <!-- 手機版漢堡按鈕 -->
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="nav-menu">
+      <a href="#">國外旅遊</a>
+      <a href="#">行程共編</a>
+      <a href="#">分帳系統</a>
+      <a href="#">行李清單</a>
+      <a href="../html/login.html" class="active">會員登入</a>
+    </nav>
+  </header>
+
+  <!-- 🔹 背景影片區 -->
+  <video autoplay muted loop playsinline id="login-bg-video">
+    <source src="../videos/loginvideo.mp4" type="video/mp4">
+  </video>
+
+  <!-- 🔹 登入主體區 -->
+  <main class="login-main">
+    <div class="login-box glass">
+      <h2>會員登入</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="電子郵件" required>
+        <input type="password" id="password" placeholder="密碼" required>
+        <button type="submit">登入</button>
+      </form>
+      <div class="login-links">
+        <a href="#">註冊新帳號</a> | 
+        <a href="#">忘記密碼？</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/login.js"></script>
+</body>
+</html>
