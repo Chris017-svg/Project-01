@@ -110,6 +110,16 @@ body {
   text-decoration: underline;
 }
 
+/* === Footer === */
+footer {
+  background: #2d3436;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  width: 100%;
+  margin-top: 40px;
+}
+
 /* === 響應式 === */
 @media (max-width: 768px) {
   header {
