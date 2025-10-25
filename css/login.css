@@ -120,6 +120,7 @@ nav a:hover {
   align-items: flex-start;
   height: 100vh;
   padding-top: 200px; /* 大約視覺 1/3 */
+  padding-bottom: 300px;
 }
 
 /* === 背景影片設定 === */
@@ -231,8 +232,6 @@ nav a:hover {
   }
 }
 
-<<<<<<< HEAD
-=======
 /* === Footer === */
 footer {
   background: #2d3436;
@@ -244,7 +243,6 @@ footer {
 }
 
 /* === 響應式 === */
->>>>>>> a866403d93a7718841687f776a73a03fa7fe4b09
 @media (max-width: 768px) {
   /* 導覽列改為漢堡 */
   header {

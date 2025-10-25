@@ -6,24 +6,35 @@
   font-family: "Poppins", "微軟正黑體", sans-serif;
 }
 
+/* ✅ 讓 footer 永遠在最底端 */
+html, body {
+  height: 100%;
+}
+
 body {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
   color: #333;
 }
 
 /* === 主體區 === */
-.login-main {
+.login-main,
+.register-main {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 100vh;
   padding-top: 200px;
+  padding-bottom: 300px; /* ✅ 新增這行：在玻璃磨砂框下方留 600px 空間 */
 }
 
+
 /* === 背景影片 === */
-#login-bg-video {
+#login-bg-video,
+#register-bg-video {
   position: fixed;
   top: 0;
   left: 0;
@@ -35,7 +46,8 @@ body {
 }
 
 /* === 玻璃磨砂框 === */
-.login-box.glass {
+.login-box.glass,
+.register-box.glass {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -148,42 +160,6 @@ nav a:hover {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* === 註冊主體區 === */
-.register-main {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100vh;
-  padding-top: 200px;
-}
-
-/* === 背景影片設定 === */
-#register-bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(0.6);
-}
-
-/* === 玻璃磨砂註冊框 === */
-.register-box.glass {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 25px;
-  box-shadow: 0 10px 40px rgba(31, 38, 135, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 60px 70px;
-  text-align: center;
-  width: 600px;
-  color: #fff;
-  font-size: 1.2rem;
-}
-
 /* === 標題 === */
 .register-box h2 {
   margin-bottom: 35px;
@@ -215,11 +191,11 @@ nav a:hover {
   background: rgba(255, 255, 255, 0.55);
 }
 
-/* === 註冊按鈕 === */
+/* === 按鈕 === */
 .register-box button {
   width: 100%;
   padding: 16px;
-  background: #06d6a0; /* ✅ 不同於登入頁黃色，給註冊一點清新綠 */
+  background: #06d6a0;
   border: none;
   border-radius: 12px;
   font-weight: bold;
@@ -252,6 +228,18 @@ nav a:hover {
   color: #ffd166;
 }
 
+/* === Footer === */
+footer {
+  background: #2d3436;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  margin-top: auto; /* ✅ 讓它貼在最底 */
+}
+
 /* === 響應式設定 === */
 @media (max-width: 1024px) {
   .register-box.glass {
@@ -273,7 +261,6 @@ nav a:hover {
     position: relative;
   }
 
- /* 顯示漢堡按鈕 */
   .menu-toggle {
     display: flex;
     position: absolute;

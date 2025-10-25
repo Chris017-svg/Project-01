@@ -235,10 +235,10 @@ nav a:hover {
 /* === 旅遊服務區（你的旅程小幫手） === */
 .travel-tools {
   position: relative;
-  width: 100vw;
-  transform: translateX(-50%);
-  margin-top: 100px;          /* ✅ 與 cities 對齊 */
-  padding: 120px 20px 140px;  /* ✅ 與 cities 對齊 */
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 120px 20px 140px;
   text-align: center;
   font-family: "Poppins", "微軟正黑體", sans-serif;
   color: #333;
@@ -452,9 +452,36 @@ nav a:hover {
   50% { transform: translateY(-2px); box-shadow: 0 0 10px rgba(0, 180, 216, 0.3); }
 }
 
+/* === 響應式調整 === */
+@media (max-width: 768px) {
+  .tool-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .tool-card {
+    width: 85%;
+    max-width: 400px;
+  }
+
+  .tools-subtitle {
+    font-size: 2.4rem;
+  }
+
+  .tools-desc {
+    font-size: 1.2rem;
+  }
+
+  .btn-tools {
+    font-size: 1.2rem;
+    padding: 10px 24px;
+  }
+}
 
 
-/* === 國內熱門城市區塊（互動升級版） === */
+
+/* === 國內熱門城市區塊 === */
 
 .section.cities {
   width: 100vw;
