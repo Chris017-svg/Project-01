@@ -127,7 +127,7 @@ body {
   .menu-toggle {
     display: flex;
     position: absolute;
-    top: 25px;
+    top: 40px;
     right: 20px;
     z-index: 1001; /* ✅ 確保在最上面可以被點擊 */
   }

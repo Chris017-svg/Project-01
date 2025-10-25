@@ -1,3 +1,4 @@
+document.documentElement.classList.remove('no-js');
 
 // === Header 滾動變色 ===
 window.addEventListener("scroll", () => {
@@ -5,6 +6,8 @@ window.addEventListener("scroll", () => {
   if (window.scrollY > 50) navbar.classList.add("scrolled");
   else navbar.classList.remove("scrolled");
 });
+
+
 
 // === 漢堡選單開關 ===
 document.addEventListener("DOMContentLoaded", () => {
@@ -127,4 +130,31 @@ document.addEventListener("DOMContentLoaded", () => {
       startAutoPlay();
     });
   });
+});
+
+// === 全站 scroll reveal 動畫 ===
+document.addEventListener("DOMContentLoaded", () => {
+  const revealSections = document.querySelectorAll(
+    ".features, .travel-tools, .cities, .testimonials, .partners"
+  );
+
+  const options = {
+    threshold: 0.05, // ✅ 降低觸發門檻
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("reveal-show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  revealSections.forEach((section) => observer.observe(section));
+
+  // ✅ 安全保險：5 秒後全顯示，避免某些區塊未觸發
+  setTimeout(() => {
+    revealSections.forEach((s) => s.classList.add("reveal-show"));
+  }, 5000);
 });
