@@ -231,6 +231,20 @@ nav a:hover {
   }
 }
 
+<<<<<<< HEAD
+=======
+/* === Footer === */
+footer {
+  background: #2d3436;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* === 響應式 === */
+>>>>>>> a866403d93a7718841687f776a73a03fa7fe4b09
 @media (max-width: 768px) {
   /* 導覽列改為漢堡 */
   header {
