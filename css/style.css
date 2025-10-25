@@ -232,115 +232,108 @@ nav a:hover {
 }
 
 
-/* === 旅遊服務區 === */
+/* === 旅遊服務區（你的旅程小幫手） === */
 .travel-tools {
   position: relative;
   width: 100vw;
   transform: translateX(-50%);
-  margin-top: 80px;
-  padding: 100px 20px 120px;
+  margin-top: 100px;          /* ✅ 與 cities 對齊 */
+  padding: 120px 20px 140px;  /* ✅ 與 cities 對齊 */
   text-align: center;
+  font-family: "Poppins", "微軟正黑體", sans-serif;
   color: #333;
   box-sizing: border-box;
   overflow: hidden;
-  font-family: "Poppins", "微軟正黑體", sans-serif;
+  background-color: #ffffff;
   animation: fadeInSection 1s ease-out both;
 }
 
-/* === 背景影片樣式 === */
+/* === 背景影片 === */
 .tools-bg-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* ✅ 讓影片填滿不變形 */
-  z-index: 0;         /* ✅ 放在最底層 */
-  opacity: 0.6;       /* ✅ 可以微調透明度 */
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.6;
 }
 
-/* === 內容層（覆蓋在影片上）=== */
+/* === 內容區（白底半透明） === */
 .tools-content {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.7); /* ✅ 半透明白底提升可讀性 */
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 20px;
-  padding: 40px;
+  padding: 60px 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-
-
-/* 區塊淡入動畫 */
+/* === 區塊淡入 === */
 @keyframes fadeInSection {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* === 標題區 === */
 .tools-head {
   text-align: center;
   margin-bottom: 60px;
-  animation: fadeDown 1.2s ease-out both;
+  padding-top: 40px; /* ✅ 與 cities.section-head 對齊 */
 }
 
 @keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
+/* 副標題（上方小字） */
+.tools-subtitle {
+  display: block;
+  font-size: 4rem;
+  font-weight: 600;
+  color: #0066ff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* 標題主文字 */
 .tools-head h2 {
   font-size: 2rem;
   font-weight: 800;
-  color: #000;
+  color: #000000;
+  letter-spacing: 1px;
   line-height: 1.4;
-  margin-bottom: 10px;
   position: relative;
   display: inline-block;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
+/* 標題底線裝飾 */
 .tools-head h2::after {
   content: "";
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -8px;
-  width: 70px;
+  bottom: 0;
+  width: 60px;
   height: 4px;
   background: linear-gradient(90deg, #00b4d8, #90e0ef);
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
-.tools-subtitle {
-  display: block;
-  font-size: 4rem;
-  font-weight: 600;
-  color: #0077b6;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-
+/* 下方說明文字 */
 .tools-desc {
   font-size: 2rem;
-  color: #333;
-  margin-top: 20px;
+  color: #636e72;
+  margin-top: 10px;
   line-height: 1.6;
-  max-width: 600px;
-  margin: 20px auto 0;
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
 }
 
 /* === 功能卡區 === */
@@ -348,30 +341,26 @@ nav a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 200px; /* ✅ 卡片間距更寬，呼吸感更好 */
+  gap: clamp(40px, 5vw, 120px); /* ✅ gap 也隨螢幕變化 */
   padding: 40px 0;
 }
 
 .tool-card {
   background: #ffffff;
-  width: 500px; /* ✅ 稍微變大，整體比例更平衡 */
-  height: 500px;
-  border-radius: 20px; /* ✅ 與按鈕一致圓角 */
-  text-decoration: none;
-  color: #2d3436;
+  width: clamp(240px, 30vw, 450px); /* ✅ 卡片寬度會自動等比例縮放 */
+  aspect-ratio: 1 / 1; /* ✅ 高度自動等比例 */
+  border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  padding: 40px 25px 50px;
+  padding: clamp(20px, 3vw, 40px);
   transition: all 0.35s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   opacity: 0;
-  transform: translateY(30px);
   animation: slideUp 0.8s ease-out forwards;
 }
 
-/* 依序淡入動畫延遲 */
 .tool-card:nth-child(1) { animation-delay: 0.3s; }
 .tool-card:nth-child(2) { animation-delay: 0.5s; }
 .tool-card:nth-child(3) { animation-delay: 0.7s; }
@@ -381,7 +370,6 @@ nav a:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* 滑入浮起效果 */
 .tool-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
@@ -389,107 +377,79 @@ nav a:hover {
 
 /* 卡片內圖片 */
 .tool-card img {
-  width: 180px;
-  height: 180px;
+  width: clamp(80px, 12vw, 180px); /* ✅ 響應式圖片大小 */
+  height: clamp(80px, 12vw, 180px);
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 96px;
+  margin-bottom: clamp(20px, 6vh, 60px);
   transition: transform 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.tool-card:hover img {
-  transform: scale(1.08);
-}
+.tool-card:hover img { transform: scale(1.08); }
 
-/* 卡片標題與文字 */
 .tool-card h3 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #0077b6;
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 2vw, 2rem); /* ✅ 響應式標題字體 */
   font-weight: 700;
+  text-decoration: none;
 }
 
 .tool-card p {
-  font-size: 1.5rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.4rem); /* ✅ 響應式內文字體 */
   color: #555;
   line-height: 1.6;
-  max-width: 250px;
+  max-width: 300px;
 }
 
-/* === 更多按鈕區 === */
+/* ✅ 移除整張卡片連結的底線與預設顏色 */
+.tool-card {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* ✅ 同時處理所有連結狀態（瀏覽器預設） */
+.tool-card:link,
+.tool-card:visited,
+.tool-card:hover,
+.tool-card:active {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* === 更多按鈕 === */
 .tools-more {
   margin-top: 100px;
   text-align: center;
 }
 
-/* ✅ 與卡片風格統一：白底圓角＋陰影＋藍邊框 */
 .btn-tools {
   font-family: "微軟正黑體", "Poppins", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 1.8vw, 2rem);
   font-weight: 600;
   color: #0077b6;
   background: #ffffff;
   text-decoration: none;
   border: 2px solid #00b4d8;
   padding: 12px 32px;
-  border-radius: 20px; /* ✅ 原本打錯有空格，修正為正確 */
+  border-radius: 20px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   animation: btnPulse 3s ease-in-out infinite;
   display: inline-block;
 }
 
-/* hover 狀態 */
 .btn-tools:hover {
   background: #00b4d8;
   color: #ffffff;
-  border-color: #00b4d8;
   transform: translateY(-4px);
   box-shadow: 0 8px 18px rgba(0, 180, 216, 0.3);
 }
 
-/* === 呼吸動畫 === */
 @keyframes btnPulse {
-  0%, 100% {
-    transform: translateY(0);
-    box-shadow: 0 0 0 rgba(0, 180, 216, 0);
-  }
-  50% {
-    transform: translateY(-2px);
-    box-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
-  }
-}
-
-
-/* === RWD 響應式調整 === */
-@media (max-width: 1024px) {
-  .tool-card { width: 300px; }
-  .tool-card img { width: 90px; height: 90px; }
-  .tool-card h3 { font-size: 1.1rem; }
-  .tool-card p { font-size: 0.9rem; }
-  .tools-head h2 { font-size: 1.8rem; }
-  .tools-subtitle { font-size: 3.5rem; }
-  .tools-desc { font-size: 1.4rem; }
-}
-
-@media (max-width: 768px) {
-  .tool-card { width: 80%; }
-  .tool-card img { width: 80px; height: 80px; }
-  .tool-card h3 { font-size: 1rem; }
-  .tool-card p { font-size: 0.85rem; }
-  .tools-head h2 { font-size: 1.5rem; }
-  .tools-subtitle { font-size: 3rem; }
-  .tools-desc { font-size: 1.1rem; }
-}
-
-@media (max-width: 480px) {
-  .tool-card img { width: 70px; height: 70px; }
-  .tool-card h3 { font-size: 0.95rem; }
-  .tool-card p { font-size: 0.8rem; }
-  .tools-head h2 { font-size: 1.3rem; }
-  .tools-subtitle { font-size: 2.4rem; }
-  .tools-desc { font-size: 0.95rem; }
+  0%, 100% { transform: translateY(0); box-shadow: 0 0 0 rgba(0, 180, 216, 0); }
+  50% { transform: translateY(-2px); box-shadow: 0 0 10px rgba(0, 180, 216, 0.3); }
 }
 
 
@@ -500,8 +460,8 @@ nav a:hover {
   width: 100vw;
   position: relative;
   transform: translateX(-50%);
-  margin-top: 80px;
-  padding: 200px 20px 200px;
+  margin-top: 100px;         /* ✅ 與 travel-tools 對齊 */
+  padding: 120px 20px 140px; /* ✅ 與 travel-tools 對齊 */
   text-align: center;
   font-family: "Poppins", "微軟正黑體", sans-serif;
   background-color: #ffffff;
@@ -510,11 +470,12 @@ nav a:hover {
   overflow: hidden;
 }
 
+
 /* === 標題區優化 === */
 .section.cities .section-head {
-  margin-bottom: 60px;
-  position: relative;
   text-align: center;
+  margin-bottom: 60px;
+  padding-top: 40px; /* ✅ 統一上方距離 */
 }
 
 /* 標題主文字 */
@@ -819,7 +780,7 @@ footer {
 }
 
 .menu-toggle span {
-  background: #2d3436;
+  background: #000000;
   height: 3px;
   border-radius: 2px;
   transition: all 0.3s ease;

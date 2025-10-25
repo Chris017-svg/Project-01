@@ -13,6 +13,42 @@ body {
   color: #333;
 }
 
+/* === 主體區 === */
+.login-main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding-top: 200px;
+}
+
+/* === 背景影片 === */
+#login-bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.6);
+}
+
+/* === 玻璃磨砂框 === */
+.login-box.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(31, 38, 135, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 60px 70px;
+  text-align: center;
+  width: 600px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
 /* === Header === */
 header {
   width: 100%;
@@ -23,7 +59,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 60px;
-  background: rgb(255, 255, 255);
+  background: rgba(72, 194, 255, 0.112);
   backdrop-filter: blur(8px);
   transition: 0.3s;
   z-index: 1000;
@@ -34,7 +70,7 @@ header.scrolled {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo */
+/* === Logo === */
 .logo {
   display: flex;
   align-items: center;
@@ -60,7 +96,7 @@ header.scrolled {
   left: -9999px;
 }
 
-/* Nav */
+/* === Nav === */
 nav a {
   font-size: 30px;
   margin-left: 25px;
@@ -85,19 +121,18 @@ nav a:hover {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 25px;
-  width: 28px;
-  height: 20px;
+  width: 30px;
+  height: 21px;
   cursor: pointer;
-  z-index: 11;
-  /* ✅ 確保在最上層可以被點擊 */
 }
 
 .menu-toggle span {
-  background: #000000;
+  display: block;
   height: 3px;
+  width: 100%;
+  background: #000000;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 /* ✅ 點擊後變成「叉叉」動畫 */
@@ -113,17 +148,17 @@ nav a:hover {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* === 登入主體區 === */
-.login-main {
+/* === 註冊主體區 === */
+.register-main {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   height: 100vh;
-  padding-top: 200px; /* 大約視覺 1/3 */
+  padding-top: 200px;
 }
 
 /* === 背景影片設定 === */
-#login-bg-video {
+#register-bg-video {
   position: fixed;
   top: 0;
   left: 0;
@@ -134,8 +169,8 @@ nav a:hover {
   filter: brightness(0.6);
 }
 
-/* === 玻璃磨砂登入框 === */
-.login-box.glass {
+/* === 玻璃磨砂註冊框 === */
+.register-box.glass {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -150,7 +185,7 @@ nav a:hover {
 }
 
 /* === 標題 === */
-.login-box h2 {
+.register-box h2 {
   margin-bottom: 35px;
   font-weight: 700;
   color: #fff;
@@ -158,7 +193,7 @@ nav a:hover {
 }
 
 /* === 輸入欄 === */
-.login-box input {
+.register-box input {
   width: 100%;
   padding: 16px;
   margin-bottom: 20px;
@@ -171,68 +206,66 @@ nav a:hover {
   transition: 0.3s;
 }
 
-.login-box input::placeholder {
+.register-box input::placeholder {
   color: #555;
   font-size: 1rem;
 }
 
-.login-box input:focus {
+.register-box input:focus {
   background: rgba(255, 255, 255, 0.55);
 }
 
-/* === 登入按鈕 === */
-.login-box button {
+/* === 註冊按鈕 === */
+.register-box button {
   width: 100%;
   padding: 16px;
-  background: #ffb703;
+  background: #06d6a0; /* ✅ 不同於登入頁黃色，給註冊一點清新綠 */
   border: none;
   border-radius: 12px;
   font-weight: bold;
-  color: #333;
+  color: #fff;
   cursor: pointer;
   transition: 0.3s;
   font-size: 1.2rem;
 }
 
-.login-box button:hover {
-  background: #ffa600;
+.register-box button:hover {
+  background: #04b88b;
   transform: translateY(-3px);
 }
 
-/* === 連結區 === */
-.login-links {
+/* === 已有帳號連結 === */
+.register-links {
   margin-top: 25px;
   font-size: 1rem;
 }
 
-.login-links a {
+.register-links a {
   color: #fff;
   text-decoration: none;
   transition: 0.3s;
   font-weight: 500;
 }
 
-.login-links a:hover {
+.register-links a:hover {
   text-decoration: underline;
   color: #ffd166;
 }
 
 /* === 響應式設定 === */
 @media (max-width: 1024px) {
-  /* 平板與小筆電時：稍微縮小框體 */
-  .login-box.glass {
+  .register-box.glass {
     width: 80%;
     padding: 50px 60px;
     font-size: 1.1rem;
   }
 
-  .login-box h2 {
+  .register-box h2 {
     font-size: 1.8rem;
   }
 }
 
 @media (max-width: 768px) {
-  /* 導覽列改為漢堡 */
   header {
     flex-direction: column;
     align-items: flex-start;
@@ -276,55 +309,55 @@ nav a:hover {
     color: #333;
   }
 
-  .login-main {
+  .register-main {
     padding-top: 100px;
     align-items: center;
   }
 
-  .login-box.glass {
+  .register-box.glass {
     width: 90%;
     padding: 40px 30px;
     font-size: 1rem;
     border-radius: 20px;
   }
 
-  .login-box h2 {
+  .register-box h2 {
     font-size: 1.6rem;
     margin-bottom: 25px;
   }
 
-  .login-box input {
+  .register-box input {
     padding: 14px;
     font-size: 1rem;
   }
 
-  .login-box button {
+  .register-box button {
     padding: 14px;
     font-size: 1.1rem;
   }
 
-  .login-links {
+  .register-links {
     font-size: 0.95rem;
     margin-top: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .login-main {
+  .register-main {
     padding-top: 80px;
   }
 
-  .login-box.glass {
+  .register-box.glass {
     width: 95%;
     padding: 30px 25px;
   }
 
-  .login-box h2 {
+  .register-box h2 {
     font-size: 1.4rem;
   }
 
-  .login-box input,
-  .login-box button {
+  .register-box input,
+  .register-box button {
     padding: 12px;
     font-size: 0.95rem;
   }
